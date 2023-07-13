@@ -12,11 +12,13 @@ import {
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import UpperHeader from './components/UpperHeader';
 
 import CategoryList from './components/CategoryList';
 
 import Home from './components/Home';
 import ProductList from './components/ProductList';
+import Cart from './components/Cart';
 
 const Drawer = () => {
   const Drawer = createDrawerNavigator();
@@ -27,6 +29,7 @@ const Drawer = () => {
       }}>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Products" component={ProductList} />
+      <Drawer.Screen name="Cart" component={Cart} />
     </Drawer.Navigator>
   );
 };
@@ -40,7 +43,8 @@ const App = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Drawer" component={Drawer} />
-        <Stack.Screen name="ProductList" component={ProductList} />
+        <Stack.Screen name="Products" component={ProductList} />
+        <Stack.Screen name="Cart" component={Cart} />
       </Stack.Navigator>
     </NavigationContainer>
   );

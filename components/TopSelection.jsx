@@ -55,7 +55,7 @@ const TopSelection = () => {
               }>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('ProductList');
+                  navigation.navigate('Products');
                 }}>
                 <Card style={styles.card}>
                   <Card.Cover style={styles.cardImg} source={card.img} />

@@ -8,10 +8,18 @@ import {
   Button,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import ProductListHeader from './ProductListHeader';
+import {addItemToCart} from '../redux/action';
 import Header from './Header';
 
 const ProductList = () => {
   const [data, setData] = useState();
+
+  const dispatch = useDispatch();
+  const addItemHandler = data => {
+    dispatch(addItemToCart(data));
+  };
 
   const getApi = async () => {
     const url = 'https://dummyjson.com/products';
@@ -27,6 +35,7 @@ const ProductList = () => {
   return (
     <View>
       <Header />
+      <ProductListHeader />
       <FlatList
         data={data}
         style={{padding: 10}}
@@ -37,7 +46,10 @@ const ProductList = () => {
             <Text style={styles.text}>{item.description}</Text>
             <View style={styles.button}>
               <Button title="Buy now" color={'green'} />
-              <Button title="Add to cart" />
+              <Button
+                title="Add to cart"
+                onPress={() => addItemHandler(item)}
+              />
             </View>
           </View>
         )}
