@@ -5,11 +5,12 @@ import {useSelector} from 'react-redux';
 
 const ProductListHeader = () => {
   const [cartItems, setCartItems] = useState(0);
-  const cartData = useSelector(state => state.reducers);
+  const cartData = useSelector(state => state.cart);
 
   useEffect(() => {
     setCartItems(cartData.length);
   }, [cartData]);
+
   const navigation = useNavigation();
   return (
     <View style={styles.header}>

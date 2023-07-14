@@ -10,15 +10,16 @@ import {
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import ProductListHeader from './ProductListHeader';
-import {addItemToCart} from '../redux/action';
+// import {addItemToCart} from '../redux/action';
 import Header from './Header';
+import {addToCart} from '../redux/cartSlice';
 
-const ProductList = () => {
+const ProductList = ({navigation}) => {
   const [data, setData] = useState();
 
   const dispatch = useDispatch();
   const addItemHandler = data => {
-    dispatch(addItemToCart(data));
+    dispatch(addToCart(data));
   };
 
   const getApi = async () => {
@@ -40,7 +41,7 @@ const ProductList = () => {
         data={data}
         style={{padding: 10}}
         renderItem={({item}) => (
-          <View style={styles.renderView}>
+          <View style={styles.renderView} key={item.id}>
             <Image source={{uri: item.images[0]}} style={styles.img} />
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.text}>{item.description}</Text>
@@ -48,7 +49,10 @@ const ProductList = () => {
               <Button title="Buy now" color={'green'} />
               <Button
                 title="Add to cart"
-                onPress={() => addItemHandler(item)}
+                onPress={() => {
+                  navigation.navigate('Cart');
+                  addItemHandler(item);
+                }}
               />
             </View>
           </View>

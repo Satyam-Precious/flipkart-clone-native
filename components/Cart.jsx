@@ -9,25 +9,43 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {removeItemFromCart} from '../redux/action';
+// import {removeItemFromCart} from '../redux/action';
+import {addCounter, removeFromCart} from '../redux/cartSlice';
 import Header from './Header';
 
 const Cart = ({navigation}) => {
   const [cartItems, setCartItems] = useState(0);
+  const [counter, setCounter] = useState(1);
 
   const dispatch = useDispatch();
+
   const removeItemHandler = index => {
-    dispatch(removeItemFromCart(index));
+    dispatch(removeFromCart(index));
   };
 
-  const cartData = useSelector(state => state.reducers);
+  const itemRemoveHandler = index => {
+    if (counter <= 1) {
+      removeItemHandler(index);
+    } else {
+      return setCounter(counter - 1);
+    }
+  };
+  const itemAddHandler = () => {
+    setCounter(counter + 1);
+  };
+
+  const cartData = useSelector(state => state.cart);
 
   useEffect(() => {
     setCartItems(cartData);
   }, [cartData]);
 
   return (
-    <View>
+    <View
+      style={{
+        marginBottom: 100,
+        paddingBottom: 10,
+      }}>
       <Header />
       <View style={styles.header}>
         <TouchableOpacity
@@ -48,6 +66,27 @@ const Cart = ({navigation}) => {
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.text}>{item.description}</Text>
             <View style={styles.button}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                }}>
+                <Button
+                  title="  -  "
+                  color={'red'}
+                  onPress={() => {
+                    itemRemoveHandler(index);
+                  }}
+                />
+
+                <Text style={{fontSize: 30, color: 'black'}}>{counter}</Text>
+                <Button
+                  color={'green'}
+                  title="  +  "
+                  onPress={itemAddHandler}
+                />
+              </View>
               <Button
                 title="Remove from cart"
                 onPress={() => removeItemHandler(index)}
@@ -78,7 +117,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     margin: 10,
     padding: 0,
+    marginBottom: 20,
     backgroundColor: 'white',
+    // height: '0%',
   },
   text: {
     paddingVertical: 14,
@@ -90,7 +131,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   button: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     gap: 15,
   },
   header: {
