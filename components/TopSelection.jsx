@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {Card, Paragraph, Title} from 'react-native-paper';
 
 const cardData = [
@@ -40,9 +41,13 @@ const TopSelection = () => {
   const navigation = useNavigation();
   return (
     <View>
-      <ImageBackground
+      {/* <ImageBackground
         source={require('../assets/TopSelection.jpeg')}
-        style={styles.img}>
+        style={styles.img}> */}
+      <LinearGradient
+        colors={['rgb(85, 88, 218)', 'rgb(95, 209, 249)']}
+        start={{x: 0, y: 0}}
+        end={{x: 0.98, y: 0}}>
         <Text style={styles.text}>Top Selection</Text>
         <View style={styles.row}>
           {cardData.map((card, index) => (
@@ -70,7 +75,8 @@ const TopSelection = () => {
             </View>
           ))}
         </View>
-      </ImageBackground>
+        {/* </ImageBackground> */}
+      </LinearGradient>
     </View>
   );
 };

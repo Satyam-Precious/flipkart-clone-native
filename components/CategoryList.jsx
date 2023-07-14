@@ -51,7 +51,7 @@ const CategoryList = () => {
           <View style={styles.bgCircle}>
             <Image source={item.img} style={{height: 30, width: 30}} />
           </View>
-          <Text> {item.title} </Text>
+          <Text style={{color: 'black'}}> {item.title} </Text>
         </View>
       )}
       keyExtractor={item => item.id}

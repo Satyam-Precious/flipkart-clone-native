@@ -6,6 +6,7 @@ import CategoryList from './CategoryList';
 import CardOffer from './CardOffer';
 import TopSelection from './TopSelection';
 import Sponsored from './Sponsored';
+import HeaderImg from './HeaderImg';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <ScrollView>
         <Header />
         <SearchBox />
+        <HeaderImg />
         <CategoryList />
         <CardOffer />
         <TopSelection />
