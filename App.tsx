@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {
   Button,
   DrawerLayoutAndroid,
@@ -19,6 +19,7 @@ import CategoryList from './components/CategoryList';
 import Home from './components/Home';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
+import SplashScreen from 'react-native-splash-screen';
 
 const Drawer = () => {
   const Drawer = createDrawerNavigator();
@@ -35,6 +36,9 @@ const Drawer = () => {
 };
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>

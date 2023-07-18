@@ -7,7 +7,11 @@ const SearchBox = () => {
       <View style={styles.inputSection}>
         <Image style={styles.icon} source={require('../assets/search.png')} />
 
-        <TextInput style={styles.textInput} placeholder="Search for products" />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Search for products"
+          placeholderTextColor={'black'}
+        />
 
         <Image style={styles.icon} source={require('../assets/mic.png')} />
         <Image style={styles.icon} source={require('../assets/camera.png')} />
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     width: 30,
   },
   textInput: {
-    color: 'black',
+    color: 'red',
     flex: 1,
     marginLeft: 10,
   },

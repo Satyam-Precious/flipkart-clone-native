@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingTop: 10,
+    color: 'black',
   },
   button: {
     flexDirection: 'row',

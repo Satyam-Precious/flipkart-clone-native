@@ -90,6 +90,13 @@ const Sponsored = () => {
 };
 
 const styles = StyleSheet.create({
+  heading: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    fontSize: 20,
+    color: 'black',
+    fontWeight: 'bold',
+  },
   container: {
     marginTop: 20,
     justifyContent: 'center',
@@ -100,22 +107,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   card: {
-    // flex: 1,
-    width: 130,
+    width: 110,
     marginHorizontal: 4,
     marginBottom: 16,
   },
   cardImg: {
-    height: 120,
+    height: 90,
     width: '100%',
   },
   cardTitle: {
     fontSize: 13,
     lineHeight: 20,
+    flexWrap: 'wrap',
   },
   cardDesc: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: 'bold',
+    flexWrap: 'wrap',
   },
   cardContent: {
     alignItems: 'center',

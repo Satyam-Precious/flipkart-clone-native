@@ -36,17 +36,17 @@ const Header = () => {
 const styles = StyleSheet.create({
   headerView: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
   },
   headerButton: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
     backgroundColor: '#2A55E5',
-    gap: -26,
+    gap: -10,
     borderRadius: 8,
-    padding: 10,
+    padding: 5,
     marginTop: 5,
-    width: 180,
+    width: 130,
     flexDirection: 'row',
   },
   headerButton2: {
@@ -54,26 +54,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'gray',
 
-    gap: -26,
+    gap: -5,
     borderRadius: 8,
-    padding: 10,
+    padding: 8,
     marginTop: 5,
-    width: 180,
+    width: 130,
     flexDirection: 'row',
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 16,
     color: 'white',
     fontWeight: '500',
   },
   headerText2: {
-    fontSize: 20,
+    fontSize: 16,
     color: 'black',
     fontWeight: '500',
   },
   icon: {
-    width: 25,
-    height: 25,
+    width: 20,
+    height: 20,
   },
 });
 

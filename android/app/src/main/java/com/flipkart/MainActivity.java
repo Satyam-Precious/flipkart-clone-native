@@ -1,6 +1,8 @@
 package com.flipkart;
 
 import com.facebook.react.ReactActivity;
+import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
@@ -22,6 +24,10 @@ public class MainActivity extends ReactActivity {
    * (aka React 18) with two boolean flags.
    */
   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+    }
   protected ReactActivityDelegate createReactActivityDelegate() {
     return new DefaultReactActivityDelegate(
         this,
@@ -30,3 +36,6 @@ public class MainActivity extends ReactActivity {
         DefaultNewArchitectureEntryPoint.getFabricEnabled());
   }
 }
+
+
+   
